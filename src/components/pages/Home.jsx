@@ -1,9 +1,13 @@
 import MovieCard from "../MovieCard";
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import '../../css/Home.css'
+import { getPopularMovies, searchMovies } from "../../services/MovieApi";
 
 function Home() {
 
     const [searchQuery, setSearchQuery] = useState("");
+    const [movies, setMovies] = useState([]);
+    const [searchedMovie, setSearchedMovie] = useState([]);
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
@@ -13,23 +17,25 @@ function Home() {
         console.log(searchTerm);
     }
 
-    const movies = [
-        {
-            title: "Gladiator",
-            release_date: "2023-01-01",
-            poster: "https://via.placeholder.com/150"
-        },
-        {
-            title: "Terminator",
-            release_date: "2023-02-01",
-            poster: "https://via.placeholder.com/150"
-        },
-        {
-            title: "Transformers",
-            release_date: "2023-03-01",
-            poster: "https://via.placeholder.com/150"
+    useEffect(() => {
+        const searchedMovie = async (searchQuery) => {
+            const searchedMvie = await searchMovies(searchQuery);
+            setMovies(searchedMvie);
+            
         }
-    ];
+        searchedMovie(searchQuery);
+    }, [searchQuery]);
+
+    useEffect(() => {
+        const fetchMovies = async () => {
+            const data = await getPopularMovies();
+            setMovies(data);
+        }
+        fetchMovies();
+    }, []);
+
+
+
 
     return (
         <div className="home">

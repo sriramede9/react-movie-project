@@ -1,27 +1,29 @@
-function MovieCard({ movie }) {
+import '../css/MovieCard.css';
 
-    function onFavoriteClick(e) {
-        alert(`You clicked on ${movie.title}`);
-        e.stopPropagation();
-        e.preventDefault();
-        console.log(`Favorite button clicked for ${movie.title}`);
-    }
-
-    return (
-        <div className="movie-card">
-            <div className="movie-poster">
-                <img src={movie.poster} alt={`${movie.title} poster`} />
-                <div className="movie-overlay">
-                    <button className={`favorite-btn`} onClick={onFavoriteClick}>
-                        ♥
-                    </button>
-                </div>
-            </div>
-            <div className="movie-info">
-                <h3>{movie.title}</h3>
-                <p>{movie.release_date?.split("-")[0]}</p>
-            </div>
+function MovieCard({ movie, isFavorite, onFavoriteClick }) {
+  return (
+    <div className="movie-card">
+      <div className="movie-poster">
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={`${movie.title} poster`}
+        />
+        <div className="movie-overlay">
+          <button
+            className={`favorite-btn ${isFavorite ? 'active' : ''}`}
+            onClick={onFavoriteClick}
+          >
+            ♥
+          </button>
         </div>
-    );
+      </div>
+      <div className="movie-info">
+        <h3>{movie.title}</h3>
+        <p>{movie.release_date?.split("-")[0]}</p>
+        <p>{movie.overview}</p>
+      </div>
+    </div>
+  );
 }
+
 export default MovieCard;
