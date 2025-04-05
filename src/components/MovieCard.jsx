@@ -1,11 +1,14 @@
 import '../css/MovieCard.css';
 import { useMovieContext } from '../context/MovieContext';
+import { useThemeContext } from '../context/ThemeContext';
 
 function MovieCard({ movie}) {
 
     const {addToFavorites, removeFromFavorites, isFavorite} = useMovieContext();
 
     const favourite= isFavorite(movie.id);
+
+    const theme = useMovieContext().theme;
 
     const onFavoriteClick = () => {
         if (favourite) {
@@ -16,7 +19,7 @@ function MovieCard({ movie}) {
     }
 
   return (
-    <div className="movie-card">
+    <div className={`movie-card ${theme}-theme`}>
       <div className="movie-poster">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -31,7 +34,7 @@ function MovieCard({ movie}) {
           </button>
         </div>
       </div>
-      <div className="movie-info">
+      <div className={`movie-info ${theme}-theme`}>
         <h3>{movie.title}</h3>
         <p>{movie.release_date?.split("-")[0]}</p>
         <p>{movie.overview}</p>

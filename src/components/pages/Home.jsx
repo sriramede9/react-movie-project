@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import MovieCard from '../MovieCard';
 import '../../css/Home.css';
 import { getPopularMovies, searchMovies } from '../../services/MovieApi';
+import { useThemeContext } from '../../context/ThemeContext';
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const theme = useThemeContext().theme;
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +35,7 @@ function Home() {
   }, [searchQuery]);
 
   return (
-    <div className="home">
+    <div className= {`home ${theme}-theme`}>
       <form onSubmit={handleOnSubmit} className="search-form">
         <input type="text" placeholder="Search for a movie..." className='search-input' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
         {searchQuery && (

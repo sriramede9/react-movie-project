@@ -1,12 +1,14 @@
 import { use } from 'react';
 import '../../css/favourites.css';
 import { useMovieContext } from '../../context/MovieContext';
+import { useThemeContext } from '../../context/ThemeContext';
 import MovieCard from '../MovieCard';
 function Favorites() {
   const favorites = useMovieContext().favorites;
+  const theme = useThemeContext().theme;
 
   return (
-    <div className="favorites">
+    <div className= {`favorites ${theme}-theme`}>
       <h1>My Favorite Movies</h1>
       {favorites.length === 0 ? (
         <p>No favorite movies added yet.</p>
