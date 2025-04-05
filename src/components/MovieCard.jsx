@@ -3,7 +3,7 @@ import { useMovieContext } from '../context/MovieContext';
 
 function MovieCard({ movie}) {
 
-    const {favorites, addToFavorites, removeFromFavorites, isFavorite} = useMovieContext();
+    const {addToFavorites, removeFromFavorites, isFavorite} = useMovieContext();
 
     const favourite= isFavorite(movie.id);
 
