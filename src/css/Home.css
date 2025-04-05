@@ -56,6 +56,81 @@
   color: #fff;
 }
 
+/* Dropdown container styles */
+.sort-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align the dropdown and label to the left */
+  gap: 1rem;
+  margin-top: 1rem; /* Add spacing above the dropdown */
+  max-width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Label styles */
+.sort-options label {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Dropdown select box styles */
+.sort-options select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #333; /* Dark background for dark theme */
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+/* Change background color and text color on hover/focus */
+.sort-options select:hover,
+.sort-options select:focus {
+  background-color: #555;
+  border-color: #444;
+  outline: none;
+}
+
+/* Light theme customization */
+.light-theme .sort-options select {
+  background-color: #f8f8f8; /* Light background for light theme */
+  color: #333;
+  border-color: #ccc;
+}
+
+/* Adjust for when light theme is active and hover/focus state */
+.light-theme .sort-options select:hover,
+.light-theme .sort-options select:focus {
+  background-color: #eaeaea;
+  border-color: #bbb;
+}
+
+/* Option styles */
+.sort-options select option {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+/* For light theme, adjust the options */
+.light-theme .sort-options select option {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Adjust for responsiveness */
+@media (max-width: 639px) {
+  .sort-options {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+
 @media (max-width: 639px) {
   .home {
     padding: 1rem 0;

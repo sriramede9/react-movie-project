@@ -7,9 +7,12 @@ const MOVIE_API_URL_WITH_ID=API_URL+"/movie/"
 
 const Popular_Movies=API_URL+"/movie/popular?api_key="+API_KEY+"&language=en-US&page=1";
 
-export const getPopularMovies= async () => {
+const Popular_Movies_WITH_SORT = (sortOption = "release_date.desc") =>
+  `${API_URL}/movie/popular?api_key=${API_KEY}&language=en-US&sort_by=${encodeURIComponent(sortOption)}&page=1`;
+
+export const getPopularMovies= async (sortOption = "release_date.desc") => {
     try {
-      const url = Popular_Movies;
+      const url = Popular_Movies_WITH_SORT(sortOption);
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
