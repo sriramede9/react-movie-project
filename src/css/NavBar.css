@@ -55,6 +55,54 @@
   transform: scale(1.2);
 }
 
+.language-toggle-btn-light-theme {
+  background-color: #f0f0f0;
+  color: #000;
+}
+.language-toggle-btn-dark-theme {
+  background-color: #333;
+  color: #fff;
+}
+.language-toggle-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.language-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.language-toggle-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+.language-toggle-btn:active {
+  transform: scale(0.95);
+}
+.language-toggle-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.language-toggle-btn:disabled:hover {
+  background-color: #ccc;
+}
+.language-toggle-btn:disabled:focus {
+  box-shadow: none;
+}
+.language-toggle-btn:disabled:active {
+  transform: none;
+}
+.language-toggle-btn:disabled:active {
+  transform: none;
+}
+.language-toggle-btn:disabled:hover {
+  background-color: #ccc;
+}
+.language-toggle-btn:disabled:focus {
+  box-shadow: none;
+}
 
 @media (max-width: 768px) {
   .navbar {

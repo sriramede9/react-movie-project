@@ -26,6 +26,7 @@ function Home() {
     const fetchMovies = async () => {
       if (searchQuery === "") {
         const data = await getPopularMovies(sortOption);
+        console.log(data);
         setMovies(data);
       } else {
         const searchedMovies = await searchMovies(searchQuery);

@@ -1,6 +1,7 @@
 import '../css/MovieCard.css';
 import { useMovieContext } from '../context/MovieContext';
 import { useThemeContext } from '../context/ThemeContext';
+import Rating from './pages/Rating';
 
 function MovieCard({ movie}) {
 
@@ -37,6 +38,7 @@ function MovieCard({ movie}) {
       <div className={`movie-info ${theme}-theme`}>
         <h3>{movie.title}</h3>
         <p>{movie.release_date?.split("-")[0]}</p>
+        <Rating rating={movie.vote_average} />
         <p>{movie.overview}</p>
       </div>
     </div>
