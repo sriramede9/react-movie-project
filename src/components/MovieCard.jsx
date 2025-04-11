@@ -1,6 +1,5 @@
 import '../css/MovieCard.css';
 import { useMovieContext } from '../context/MovieContext';
-import { useThemeContext } from '../context/ThemeContext';
 import Rating from './pages/Rating';
 
 function MovieCard({ movie}) {

@@ -1,4 +1,3 @@
-import { use } from 'react';
 import '../../css/favourites.css';
 import { useMovieContext } from '../../context/MovieContext';
 import { useThemeContext } from '../../context/ThemeContext';
